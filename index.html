@@ -1,9 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+	<!-- jQuery CDN links. -->
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Bootstrap CDN links. -->
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+
 	<title>Newyork Times Search API Integration</title>
 </head>
 <body>
-	Hello
+	<div class="container">
+
+		<div class="row text-center">
+			<h1>NewYork Times Search</h1>
+		</div>
+
+		<div class="row search-parameters">
+			<br>Search Term<br>
+			<input type="text" id="search-term" name="search">
+
+			<br>Number of records<br>
+			<input type="text" id="num-records" name="number">
+
+			<br>Start Year (Optional)<br>
+			<input type="text" id="start-year" name="startyear">
+
+			<br>End Year (Optional)<br>
+			<input type="text" id="end-year" name="endyear">
+
+			<br><button id="submit">Submit</button>			
+		</div>
+
+		<div class="row reults"></div>
+
+		<div class="row text-center footer">
+			<p>Copyright &copy; 2017 Radhika Sivarajan</p>
+		</div>
+		
+	</div>
+
+	<script type="text/javascript" src="assets/javascript/nyt_api.js" ></script>
 </body>
 </html>
