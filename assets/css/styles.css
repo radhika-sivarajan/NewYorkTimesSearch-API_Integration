@@ -1,0 +1,9 @@
+@font-face {
+	font-family: "NeyYork";
+	src: url(NeyYork.ttf) format("truetype");
+}
+
+h1 {
+	font-family: "NeyYork", sans-serif;
+	font-size: 60px;
+}

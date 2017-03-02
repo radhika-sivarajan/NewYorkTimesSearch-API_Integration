@@ -18,26 +18,41 @@
 	<div class="container">
 
 		<div class="row text-center">
-			<h1>NewYork Times Search</h1>
+			<div class="col-md-12">
+				<h1>NewYork Times Search</h1>
+			</div>
 		</div>
 
 		<div class="row search-parameters">
-			<br>Search Term<br>
-			<input type="text" id="search-term" name="search">
+			<div class="col-md-8 col-md-offset-2">
+				<div class="param-heading">
+					Search parameters			
+				</div>
 
-			<br>Number of records<br>
-			<input type="text" id="num-records" name="number">
+				<br>Search Term<br>
+				<input type="text" id="search-term" name="search">
 
-			<br>Start Year (Optional)<br>
-			<input type="text" id="start-year" name="startyear">
+				<br>Number of records<br>
+				<input type="text" id="num-records" name="number">
 
-			<br>End Year (Optional)<br>
-			<input type="text" id="end-year" name="endyear">
+				<br>Start Year (Optional)<br>
+				<input type="text" id="start-year" name="startyear">
 
-			<br><button id="submit">Submit</button>			
+				<br>End Year (Optional)<br>
+				<input type="text" id="end-year" name="endyear">
+
+				<br><button id="submit">Submit</button>	
+			</div>		
 		</div>
 
-		<div class="row reults"></div>
+		<div class="row reults-section">
+			<div class="col-md-8 col-md-offset-2">
+				<div class="result-heading">
+					Results
+				</div>
+				<div id="search-result"></div>
+			</div>
+		</div>
 
 		<div class="row text-center footer">
 			<p>Copyright &copy; 2017 Radhika Sivarajan</p>
