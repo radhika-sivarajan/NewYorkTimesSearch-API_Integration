@@ -35,7 +35,7 @@ function retriveNews(queryURL,count){
 			}
 
 			if(NTrecords.response.docs[i].web_url){
-				$("#article-id-" + i).append("<p>URL: <a href='" + NTrecords.response.docs[i].web_url + "'>" + NTrecords.response.docs[i].web_url + "</a></p>");
+				$("#article-id-" + i).append("<br><a href='" + NTrecords.response.docs[i].web_url + "'>" + Go to URL + "</a> OR ");
 
 				var button = $("<button>").text("View").attr("id", "buton-" + i).addClass("view");
 				button.attr("article-url",NTrecords.response.docs[i].web_url);
