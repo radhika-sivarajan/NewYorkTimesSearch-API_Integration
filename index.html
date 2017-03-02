@@ -23,30 +23,37 @@
 			</div>
 		</div>
 
-		<div class="row search-parameters">
-			<div class="col-md-8 col-md-offset-2">
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4 search-section">
 				<div class="param-heading">
 					Search parameters			
-				</div>
-
-				<br>Search Term<br>
-				<input type="text" id="search-term" name="search">
-
-				<br>Number of records<br>
-				<input type="text" id="num-records" name="number">
-
-				<br>Start Year (Optional)<br>
-				<input type="text" id="start-year" name="startyear">
-
-				<br>End Year (Optional)<br>
-				<input type="text" id="end-year" name="endyear">
-
-				<br><button id="submit">Submit</button>	
+				</div>				
+					<div class="form-group">
+						<label for="search-term">Search term <span class="red"> * </span></label>
+						<input type="text" class="form-control" id="search-term" placeholder="Search">
+					</div>
+					<div class="form-group">
+						<label for="num-records">Number of records</label>
+						<select class="form-control" id="num-records">
+					      <option value="1">1</option>
+					      <option value="2">2</option>
+					      <option value="5" selected>5</option>
+					      <option value="10">10</option>
+					    </select>						
+					</div>
+					<div class="form-group">
+						<label for="start-year">Start year (Optional)</label>
+						<input type="text" class="form-control" id="start-year" placeholder="Year">
+					</div>
+					<div class="form-group">
+						<label for="end-year">End Year (Optional)</label>
+						<input type="text" class="form-control" id="end-year" placeholder="Year">
+					</div>
+					<span class="message"><span class="red"> * </span>Required</span><br><br>
+					<button type="submit" class="btn btn-primary" id="submit">Submit</button>
 			</div>		
-		</div>
-
-		<div class="row reults-section">
-			<div class="col-md-8 col-md-offset-2">
+		
+			<div class="col-md-7 result-section">
 				<div class="result-heading">
 					Results
 				</div>

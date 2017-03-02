@@ -7,3 +7,12 @@ h1 {
 	font-family: "NeyYork", sans-serif;
 	font-size: 60px;
 }
+.red {
+	color: red;
+}
+.message {
+	font-style: italic;
+}
+.result-section {
+	display: none;
+}
