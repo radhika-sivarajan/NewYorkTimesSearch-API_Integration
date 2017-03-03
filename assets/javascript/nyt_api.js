@@ -61,14 +61,13 @@ function popupWindow(){
 //On submitting search parameters
 $("#submit").on("click", function(){
 
-	//Change layout, empty the result section and display
+	//Change layout, empty the result section and display.
 	$(".search-section ").removeClass("col-md-4 col-md-offset-4");
 	$(".search-section ").addClass("col-md-3 col-md-offset-1");
-	$(".result-section ").addClass("col-md-7");
-	
-	$("#search-result").empty();
+	$(".result-section ").addClass("col-md-7");	
+	$("#search-result").empty();	
 	$(".result-section ").show();
-
+	
 	//Get the user inputs
 	searchTerm = $("#search-term").val().trim();
 	searchCount = $("#num-records").val().trim();
