@@ -17,6 +17,9 @@ function retriveNews(queryURL,count){
 
 		console.log(NTrecords,parseInt(count));
 
+		//Empty result section
+		$("#search-result").empty();
+
 		//If zero records
 		if(NTrecords.response.docs.length === 0){
 			$("#search-result").html("<div class='text-center' ><img src='assets/images/no-result.png' alt='No result'></img></div>");
@@ -71,7 +74,6 @@ function popupWindow(){
 
 //On submitting search parameters
 $("#submit").on("click", function(){
-
 	//Get the user inputs
 	searchTerm = $("#search-term").val().trim();
 	searchCount = $("#num-records").val().trim();
@@ -98,12 +100,12 @@ $("#submit").on("click", function(){
 		}
 		else{
 
-			//Change layout, empty the result section and display.
+			//Change layout, display the result section and loading gear image.
 			$(".search-section ").removeClass("col-md-4 col-md-offset-4");
 			$(".search-section ").addClass("col-md-4");
 			$(".result-section ").addClass("col-md-7 col-md-offset-1");	
-			$("#search-result").empty();
 			$(".result-section ").show();
+			$("#search-result").html("<div class='text-center' ><img src='assets/images/loading-gear.gif' alt='Loading'></img></div>");
 
 			//Pass final url along with the search count to the function
 			retriveNews(queryURL,searchCount);
