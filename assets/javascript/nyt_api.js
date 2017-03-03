@@ -20,15 +20,15 @@ function retriveNews(queryURL,count){
 		//Empty result section
 		$("#search-result").empty();
 
-		//If zero records
+		//If zero records show "no result".
 		if(NTrecords.response.docs.length === 0){
 			$("#search-result").html("<div class='text-center' ><img src='assets/images/no-result.png' alt='No result'></img></div>");
 		}
 
-		//Display retrive aricle contents
+		//Display retrived aricle contents
 		for(var i = 0; i < parseInt(count); i++){
 
-			// New section for each record
+			// New section for each record.
 			var article = $("<div>");
 			article.attr("id","article-id-" + i);
 			$("#search-result").append(article);
@@ -51,13 +51,13 @@ function retriveNews(queryURL,count){
 			if(NTrecords.response.docs[i].web_url){
 				$("#article-id-" + i).append("<strong>Link : </strong><a href='" + NTrecords.response.docs[i].web_url + "' target='_blank'>Go to the page</a> OR ");
 
-				//Button for popup window to the Newyork times web page.
+				//Button for popup window of Newyork times web page.
 				var button = $("<span>").text("View").attr("id", "buton-" + i).addClass("label label-success view");
 				button.attr("article-url",NTrecords.response.docs[i].web_url);
 				$("#article-id-" + i).append(button);
 			}
 
-			//Separator between retrieved article
+			//Separator between records
 			$("#article-id-" + i).append("<hr>");
 			
 		}
@@ -69,21 +69,50 @@ function retriveNews(queryURL,count){
 //Function for popup window
 function popupWindow(){
 	var url = $(this).attr("article-url");
-	window.open(url, "Newyork Times", "width=800,height=600");
+	window.open(url, "Newyork Times", "width=700,height=600");
 }
+
+//When click on view button on article, call function for popup window
+$(document).on("click",".view", popupWindow);
+
+//Realtime search term field validation and error message
+$('#search-term').on("input", function() {
+	var is_search = $(this).val();
+
+	if(is_search){
+		$(this).next().hide();
+	}else{		
+		$(this).next().show().text("This field is required");
+	}
+});
+
+//Realtime year field validation and error message
+$('#end-year').on("input", function() {
+	var is_start_year = parseInt($("#start-year").val().trim());
+	var is_end_year =  parseInt($(this).val().trim());
+
+	if(is_start_year && is_end_year && (is_end_year < is_start_year)){
+		$(this).next().show().text("End year should be greater than Start year");
+	}else{		
+		$(this).next().hide();
+	}
+});
 
 //On submitting search parameters
 $("#submit").on("click", function(){
+
 	//Get the user inputs
 	searchTerm = $("#search-term").val().trim();
 	searchCount = $("#num-records").val().trim();
 	startYear = parseInt($("#start-year").val().trim());
 	endYear = parseInt($("#end-year").val().trim());
 
-	//If empty search field alert
+	//If empty search field show warning message
 	if(!searchTerm){
-		alert("Enter a search term");
+		$("#search-term").next().show().text("This field is required");
 	}else{
+
+		$("#search-term").next().hide();
 
 		//Attach search term to the query
 		queryURL = queryURLBase + searchTerm;
@@ -94,13 +123,15 @@ $("#submit").on("click", function(){
 		if(endYear)
 			queryURL += "&end_date=" + endYear + "0101";
 
-		//If the start year is greater than end year throw an alert
+		//If the start year is greater than end year show warning message
 		if(startYear && endYear && startYear>endYear){
-			alert("End year must be greater or equal to start year");
+			$("#end-year").next().show().text("End year should be greater than Start year");
 		}
 		else{
 
-			//Change layout, display the result section and loading gear image.
+			$("#end-year").next().hide();
+
+			//Change layout, display the result section and show loading gear image.
 			$(".search-section ").removeClass("col-md-4 col-md-offset-4");
 			$(".search-section ").addClass("col-md-4");
 			$(".result-section ").addClass("col-md-7 col-md-offset-1");	
@@ -113,5 +144,3 @@ $("#submit").on("click", function(){
 	}
 });
 
-//When click on view button on article, call function for popup window
-$(document).on("click",".view", popupWindow);

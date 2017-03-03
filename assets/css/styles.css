@@ -22,20 +22,21 @@ h1 {
 	border-bottom: 5px solid #777;
 }
 
-.red {
+.red, .error {
 	color: red;
 }
 
-.message, .snippet {
-	font-style: italic;
-}
-
-.result-section {
+.error, .result-section  {
 	display: none;
+	
 }
 
 .headline{
 	line-height: 30px;
+}
+
+.message, .snippet {
+	font-style: italic;
 }
 
 .view:hover {
@@ -49,7 +50,6 @@ h1 {
 	padding: 20px 30px;
 	margin-top: 30px;
 }
-
 
 .search-heading, .result-heading {
 	padding: 15px 0;
